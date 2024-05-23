@@ -1,0 +1,24 @@
+.macro puts(%prompt)
+la $a0, %prompt
+li $v0, 4
+syscall
+.end_macro
+
+.macro puti_p(%str_dl1, %dulieu1)
+puts %str_dl1
+li $v0, 1
+lw $t0, %dulieu1
+add $a0, $zero, $t0	
+syscall
+.end_macro
+
+.macro putf_p(%str_dl2, %dulieu2)
+puts %str_dl2
+li $v0, 2
+l.s $f12, %dulieu2	
+syscall
+.end_macro
+
+
+.macro linefeed
+.end_macro
